@@ -20,10 +20,13 @@ namespace Assignemt_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string RESEARCHER_LIST_KEY = "reasercherList";
+        //property to access the shared resource.
+        private const string RESEARCHER_LIST_KEY = "researcherList";
         private ResearcherController resCon;
+
         public MainWindow()
         {
+            
             InitializeComponent();
 
             resCon = (ResearcherController)(Application.Current.FindResource(RESEARCHER_LIST_KEY) as ObjectDataProvider).ObjectInstance;
@@ -39,7 +42,10 @@ namespace Assignemt_2
 
         private void ResearcherList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (e.AddedItems.Count > 0)
+            {
+                ResearcherListViewField.DataContext = e.AddedItems[0];
+            }
         }
     }
 }

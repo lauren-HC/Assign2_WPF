@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Assignemt_2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:ResearcherController x:Key="resCon"/>
+        <ObjectDataProvider x:Key="researcherList"
+                            ObjectInstance="{StaticResource resCon}"
+                            MethodName="loadResearchers">
+        </ObjectDataProvider>
+        
     </Application.Resources>
 </Application>
